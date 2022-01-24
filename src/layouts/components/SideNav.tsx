@@ -160,7 +160,7 @@ export default defineComponent({
               ),
             operations: () => (
               <span class="version-container">
-                {!this.collapsed && 'TDesign Starter'} {pgk.version}
+                {!this.collapsed && 'ZERITER-ADMIN'} {pgk.version}
               </span>
             ),
           }}
