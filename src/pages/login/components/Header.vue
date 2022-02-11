@@ -59,6 +59,7 @@ export default defineComponent({
   .logo {
     width: 188px;
     height: 64px;
+    margin-top: 32px;
   }
 
   .operations-container {

@@ -20,17 +20,6 @@
 
           <!-- 全局通知 -->
           <notice />
-
-          <t-tooltip placement="bottom" content="代码仓库">
-            <t-button theme="default" shape="square" variant="text" @click="navToGitHub">
-              <t-icon name="logo-github" />
-            </t-button>
-          </t-tooltip>
-          <t-tooltip placement="bottom" content="帮助文档">
-            <t-button theme="default" shape="square" variant="text" @click="navToHelper">
-              <t-icon name="help-circle" />
-            </t-button>
-          </t-tooltip>
           <t-dropdown :min-column-width="135" trigger="click">
             <template #dropdown>
               <t-dropdown-menu>
@@ -52,11 +41,6 @@
               </div>
             </t-button>
           </t-dropdown>
-          <t-tooltip placement="bottom" content="系统设置">
-            <t-button theme="default" shape="square" variant="text">
-              <t-icon name="setting" @click="toggleSettingPanel" />
-            </t-button>
-          </t-tooltip>
         </div>
       </template>
     </t-head-menu>
@@ -116,11 +100,6 @@ export default defineComponent({
   setup(props) {
     const store = useStore();
     const router = useRouter();
-
-    const toggleSettingPanel = () => {
-      store.commit('setting/toggleSettingPanel', true);
-    };
-
     const active = computed(() => {
       const route = useRoute();
       if (!route.path) {
@@ -167,17 +146,8 @@ export default defineComponent({
       router.push(`/login?redirect=${router.currentRoute.value.fullPath}`);
     };
 
-    const navToGitHub = () => {
-      window.open('https://github.com/tencent/tdesign-vue-next-starter');
-    };
-
-    const navToHelper = () => {
-      window.open('http://tdesign.tencent.com/starter/docs/get-started');
-    };
-
     return {
       isSidebarCompact,
-      toggleSettingPanel,
       active,
       showMenu,
       layoutCls,
@@ -187,8 +157,6 @@ export default defineComponent({
       changeCollapsed,
       handleNav,
       handleLogout,
-      navToGitHub,
-      navToHelper,
     };
   },
 });
